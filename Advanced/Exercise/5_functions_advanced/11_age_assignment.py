@@ -4,7 +4,6 @@ def age_assignment(*names, **ages):
     for first_letter, age in ages.items():
         for name in result:
 
-
             if name.startswith(first_letter):
                 result[name] = age
     return result
