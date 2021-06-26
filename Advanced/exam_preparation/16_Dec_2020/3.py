@@ -12,7 +12,7 @@ def get_magic_triangle(n):
                 matrix[k].append(matrix[k - 1][l - 1] + matrix[k - 1][l])
             elif l == k:
                 matrix[k].append(matrix[k - 1][l - 1])
-    return  matrix
+    return matrix
 
 
 print(get_magic_triangle(5))
