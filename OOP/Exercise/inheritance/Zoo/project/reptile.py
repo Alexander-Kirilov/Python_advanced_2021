@@ -2,8 +2,5 @@ from project.animal import Animal
 
 
 class Reptile(Animal):
-    pass
-
-    @property
-    def name(self):
-        return self.__name
+    def __init__(self, name):
+        super().__init__(name)

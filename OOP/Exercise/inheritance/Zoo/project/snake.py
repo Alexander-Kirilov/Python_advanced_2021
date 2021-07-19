@@ -1,9 +1,6 @@
-from project.lizard import Lizard
+from project.reptile import Reptile
 
 
-class Snake(Lizard):
-    pass
-
-    @property
-    def name(self):
-        return self.__name
+class Snake(Reptile):
+    def __init__(self, name):
+        super().__init__(name)
