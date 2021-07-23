@@ -1,9 +1,9 @@
-from project.caretaker import Caretaker
-from project.cheetah import Cheetah
-from project.keeper import Keeper
-from project.lion import Lion
-from project.tiger import Tiger
-from project.vet import Vet
+from Wild_cat_zoo.project.caretaker import Caretaker
+from Wild_cat_zoo.project.cheetah import Cheetah
+from Wild_cat_zoo.project.keeper import Keeper
+from Wild_cat_zoo.project.lion import Lion
+from Wild_cat_zoo.project.tiger import Tiger
+from Wild_cat_zoo.project.vet import Vet
 
 
 class Zoo:
