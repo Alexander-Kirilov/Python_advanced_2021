@@ -1,4 +1,4 @@
-from project.hero import Hero
+from Wild_cat_zoo.project import Hero
 
 
 class Knight(Hero):

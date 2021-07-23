@@ -1,4 +1,4 @@
-from project.person import Person
+from Wild_cat_zoo.project import Person
 
 
 class Child(Person):

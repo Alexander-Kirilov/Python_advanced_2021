@@ -1,4 +1,4 @@
-from project.wizard import Wizard
+from Wild_cat_zoo.project import Wizard
 
 
 class DarkWizard(Wizard):

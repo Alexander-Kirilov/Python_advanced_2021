@@ -1,4 +1,4 @@
-from project.car import Car
+from Wild_cat_zoo.project import Car
 
 
 class FamilyCar(Car):

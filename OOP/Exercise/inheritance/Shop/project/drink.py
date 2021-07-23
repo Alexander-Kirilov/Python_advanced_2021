@@ -1,4 +1,4 @@
-from project.product import Product
+from Wild_cat_zoo.project import Product
 
 
 class Drink(Product):

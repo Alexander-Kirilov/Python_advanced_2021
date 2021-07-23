@@ -1,7 +1,3 @@
-from project.food import Food
-from project.drink import Drink
-
-
 class ProductRepository:
 
     def __init__(self, ):

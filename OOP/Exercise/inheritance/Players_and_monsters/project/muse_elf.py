@@ -1,4 +1,4 @@
-from project.elf import Elf
+from Wild_cat_zoo.project import Elf
 
 
 class MuseElf(Elf):

@@ -1,4 +1,4 @@
-from project.mammal import Mammal
+from Wild_cat_zoo.project import Mammal
 
 
 class Bear(Mammal):

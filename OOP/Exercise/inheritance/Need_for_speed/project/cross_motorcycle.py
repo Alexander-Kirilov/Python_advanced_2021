@@ -1,4 +1,4 @@
-from project.motorcycle import Motorcycle
+from Wild_cat_zoo.project import Motorcycle
 
 
 class CrossMotorcycle(Motorcycle):

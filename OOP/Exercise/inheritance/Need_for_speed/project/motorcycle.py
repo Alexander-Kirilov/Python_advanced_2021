@@ -1,4 +1,4 @@
-from project.vehicle import Vehicle
+from Wild_cat_zoo.project import Vehicle
 
 
 class Motorcycle(Vehicle):

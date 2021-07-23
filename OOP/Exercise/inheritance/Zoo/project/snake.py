@@ -1,4 +1,4 @@
-from project.reptile import Reptile
+from Wild_cat_zoo.project import Reptile
 
 
 class Snake(Reptile):
