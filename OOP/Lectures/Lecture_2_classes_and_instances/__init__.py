@@ -9,7 +9,7 @@ class Vehicle(object):
         print("Moving...")
 
     # def __str__(self):
-    #     return f"This a vehicle with max speed {self.max_speed} and mileages {self.mileage}"
+    #     return f"This a wild_farm with max speed {self.max_speed} and mileages {self.mileage}"
 
     def __repr__(self):
         return "asd"
