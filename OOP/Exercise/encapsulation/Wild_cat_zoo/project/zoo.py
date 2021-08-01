@@ -1,14 +1,14 @@
-from Wild_cat_zoo.project.caretaker import Caretaker
-from Wild_cat_zoo.project.cheetah import Cheetah
-from Wild_cat_zoo.project.keeper import Keeper
-from Wild_cat_zoo.project.lion import Lion
-from Wild_cat_zoo.project.tiger import Tiger
-from Wild_cat_zoo.project.vet import Vet
+from project.caretaker import Caretaker
+from project.cheetah import Cheetah
+from project.keeper import Keeper
+from project.lion import Lion
+from project.tiger import Tiger
+from project.vet import Vet
 
 
 class Zoo:
     def __init__(self, name, budget, animal_capacity, workers_capacity):
-        self.__name = name
+        self.name = name
         self.__budget = budget
         self.__animal_capacity = animal_capacity
         self.__workers_capacity = workers_capacity
@@ -20,7 +20,7 @@ class Zoo:
         if len(self.animals) < self.__animal_capacity and self.__budget >= price:
             self.animals.append(animal)
             self.__budget -= price
-            return f"{animal.name} the {type(animal.__name__)} added to the zoo"
+            return f"{animal.name} the {type(animal).__name__} added to the zoo"
 
         if len(self.animals) < self.__animal_capacity and self.__budget < price:
             return "Not enough budget"
@@ -29,7 +29,7 @@ class Zoo:
     def hire_worker(self, worker):
         if len(self.workers) < self.__workers_capacity:
             self.workers.append(worker)
-            return f"{worker.name} the {type(worker.__name__)} hired successfully"
+            return f"{worker.name} the {type(worker).__name__} hired successfully"
         return "Not enough space for worker"
 
     def fire_worker(self, worker_name):
@@ -51,13 +51,14 @@ class Zoo:
         total_money_for_care = sum(map(lambda animal: animal.money_for_care, self.animals))
 
         if total_money_for_care <= self.__budget:
+            self.__budget -= total_money_for_care
             return f"You tended all the animals. They are happy. Budget left: {self.__budget}"
         return "You have no budget to tend the animals. They are unhappy."
 
     def profit(self, amount):
         self.__budget += amount
 
-    def animal_status(self):
+    def animals_status(self):
         result = f"You have {len(self.animals)} animals\n"
 
         total_lions = 0

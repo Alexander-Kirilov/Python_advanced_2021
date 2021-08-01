@@ -1,5 +1,5 @@
 class Player:
-    def __ini__(self, name, sprint, dribble, passing, shooting):
+    def __init__(self, name, sprint, dribble, passing, shooting):
         self.__name = name
         self.__sprint = sprint
         self.__dribble = dribble

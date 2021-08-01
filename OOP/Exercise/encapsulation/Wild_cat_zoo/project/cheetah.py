@@ -1,4 +1,4 @@
-from Wild_cat_zoo.project.animal import Animal
+from project.animal import Animal
 
 
 class Cheetah(Animal):

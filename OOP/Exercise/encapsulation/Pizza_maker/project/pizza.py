@@ -18,7 +18,7 @@ class Pizza:
 
     @property
     def dough(self):
-        return self.dough
+        return self.__dough
 
     @dough.setter
     def dough(self, value):
