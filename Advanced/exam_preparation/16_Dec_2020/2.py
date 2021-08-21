@@ -40,14 +40,8 @@ for i in range(commands_count):
     elif command == "right":
         col += 1
 
-    if row not in range(0, len(matrix)) or col not in range(0, len(matrix)):
-        if len(string) > 0:
-            string = string[:-1]
-            row = previous_row
-            col = previous_col
-    else:
-        if matrix[row][col].isalpha():
-            string += matrix[row][col]
+    if row not in range(0, len(matrix)) or col not in range(0, len(matrix)) or matrix[row][col] == "R":
+        break
 
     matrix[row][col] = "P"
 

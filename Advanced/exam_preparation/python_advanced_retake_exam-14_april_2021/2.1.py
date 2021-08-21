@@ -1,64 +1,55 @@
-def read_matrix():
-    matrix = [[x for x in input().split(" ")] for n in range(7)]
-    return matrix
+from math import ceil
+from collections import deque
 
 
-player_1_score = 501
-player_2_score = 501
-player_1, player_2 = input().split(", ")
-turns_counter = -1
-turns_counter_player_1 = 0
-turns_counter_player_2 = 0
+def read_board():
+    board = [[col for col in input().split()] for row in range(7)]
 
-matrix = read_matrix()
+    return board
+
+
+def validate_position(row, col):
+    if 0 <= row < 7 and 0 <= col < 7:
+        return True
+    return False
+
+
+def get_numbers_sum(row, col, board):
+    nums = [
+        int(board[row][0]),
+        int(board[row][6]),
+        int(board[0][col]),
+        int(board[6][col]),
+    ]
+
+    return sum(nums)
+
+
+first_player_name, second_player_name = input().split(', ')
+points = {first_player_name: 501, second_player_name: 501}
+
+throws = 1
+players = deque([first_player_name, second_player_name])
+board = read_board()
 
 while True:
-    # Searching for shoots index
-    shoots = input().split(", ")
-    shoots_row, shoots_col = shoots[0][1], shoots[1][0]
-    row = int(shoots_row)
-    col = int(shoots_col)
-    double = ((int(matrix[row][0])) + (int(matrix[row][6])) + (int(matrix[0][col])) + (
-        int(matrix[6][col]))) * 2
-    triple = ((int(matrix[row][0])) + (int(matrix[row][6])) + (int(matrix[0][col])) + (
-        int(matrix[6][col]))) * 3
-    turns_counter += 1
-    # checking if the shoot is in range
+    current_player = players[0]
+    pos_row, pos_col = eval(input())
 
-    if turns_counter % 2 == 0:
-        if 0 <= row < 7 and 0 <= col < 7:
-            turns_counter_player_1 += 1
-            if matrix[row][col].isnumeric():
-                player_1_score -= int(matrix[row][col])
-            elif matrix[row][col] == "D":
-                player_1_score -= double
-            elif matrix[row][col] == "T":
-                player_1_score -= triple
-            elif matrix[row][col] == "B":
-                print(f"{player_1} won the game with {turns_counter_player_1} throws!")
-                break
-            if player_1_score <= 0:
-                print(f"{player_1} won the game with {turns_counter_player_1} throws!")
-                break
-        else:
-            turns_counter_player_1 += 1
-            player_1_score += 0
+    if validate_position(pos_row, pos_col):
+        value = board[pos_row][pos_col]
+        if value.isnumeric():
+            points[current_player] -= int(value)
+        elif value == "D":
+            points[current_player] -= get_numbers_sum(pos_row, pos_col, board) * 2
+        elif value == "T":
+            points[current_player] -= get_numbers_sum(pos_row, pos_col, board) * 3
+        elif value == "B":
+            print(f"{current_player} won the game with {ceil(throws/2)} throws!")
+            exit(0)
 
-    else:
-        if 0 <= row < 7 and 0 <= col < 7:
-            turns_counter_player_2 += 1
-            if matrix[row][col].isnumeric():
-                player_2_score -= int(matrix[row][col])
-            elif matrix[row][col] == "D":
-                player_2_score -= double
-            elif matrix[row][col] == "T":
-                player_2_score -= triple
-            elif matrix[row][col] == "B":
-                print(f"{player_2} won the game with {turns_counter_player_2} throws!")
-                break
-            if player_2_score <= 0:
-                print(f"{player_2} won the game with {turns_counter_player_2} throws!")
-                break
-        else:
-            turns_counter_player_2 += 1
-            player_2_score += 0
+    if points[current_player] <= 0:
+        print(f"{current_player} won the game with {ceil(throws/2)} throws!")
+        exit(0)
+    players.rotate()
+    throws += 1
